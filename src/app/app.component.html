@@ -1,1 +1,17 @@
-<router-outlet />
+<div class="header-filler"></div>
+<app-notifier></app-notifier>
+<main>
+  <button class="top-nav right" (click)="goToSettings()">
+    <i class="fa fa-cog"></i>
+  </button>
+  <button class="top-nav left hide-on-pc" (click)="openMenu()">
+    <i class="fa fa-bars"></i>
+   </button>
+  <div class="div-25">
+    <app-menu id="menu" [class]="isOpen() ? 'open' : 'close'"></app-menu>
+  </div>
+  <div class="div-75">
+    <router-outlet />
+  </div>
+  <app-popup-screen></app-popup-screen>
+</main>

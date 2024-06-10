@@ -1,0 +1,34 @@
+div.main {
+    position: fixed;
+    top: 1%;
+    z-index: 1000;
+    padding: 20px;
+    width: 300px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: top 0.5s;
+    background-color: #007bff;
+}
+
+div.main.success {
+    background-color: #28a745;
+}
+
+div.main.error {
+    background-color: #dc3545;
+}
+
+div.main.warning {
+    background-color: #ffc107;
+}
+
+div.main.info {
+    background-color: #17a2b8;
+}
+
+div.main.hidden {
+    top: -100%;
+}

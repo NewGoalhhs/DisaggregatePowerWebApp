@@ -1,13 +1,34 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Router, RouterOutlet} from '@angular/router';
+import {PopupScreenComponent} from "./components/popup-screen/popup-screen.component";
+import {MenuComponent} from "./components/menu/menu.component";
+import {PopupService} from "./services/popup.service";
+import {MenuService} from "./services/menu.service";
+import {NotifierComponent} from "./components/notifier/notifier.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, PopupScreenComponent, MenuComponent, NotifierComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'DisaggregatePowerWebApp';
+
+  constructor(private router: Router, private popupService: PopupService, private menuService: MenuService) {
+  }
+
+  goToSettings() {
+    this.router.navigate(["/popup/settings"])
+    this.popupService.setHide(false);
+  }
+
+  openMenu() {
+    this.menuService.openMenu();
+  }
+
+  isOpen() {
+    return this.menuService.isOpen();
+  }
 }

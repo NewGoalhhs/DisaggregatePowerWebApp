@@ -1,0 +1,10 @@
+<div class="backdrop-filter {{(getHide() ? 'hide' : 'show')}}">
+  <div [class]="'main'">
+    <button class="top-nav right" (click)="close()">
+      <i class="fa fa-close"></i>
+    </button>
+    <div class="content">
+      <ng-container appDynamicHost></ng-container>
+    </div>
+  </div>
+</div>

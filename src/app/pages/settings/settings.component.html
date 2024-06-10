@@ -1,0 +1,7 @@
+<h1>Settings</h1>
+<div *ngFor="let field of getFields()">
+  <div class="field">
+    <label [id]="field.getName()">{{ field.getName() }}</label>
+    <input [type]="field.getType()" [value]="field.getValue()">
+  </div>
+</div>

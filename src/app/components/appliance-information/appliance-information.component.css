@@ -1,0 +1,20 @@
+.is-on {
+  background-color: var(--green);
+}
+
+.is-off {
+  background-color: var(--red);
+}
+
+div {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--gray-100);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}

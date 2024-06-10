@@ -1,8 +1,11 @@
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <div class="divider" role="separator" aria-label="Divider"></div>
-      <div class="right-side"></div>
+<div class="main">
+  <div class="left-side">
+    <h1>Disaggregate Power Web App</h1>
+    <div class=""></div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+      <h2>Appliances</h2>
+      <app-appliance-information *ngFor="let appliance of getAppliances()" [appliance]="appliance"></app-appliance-information>
     </div>
   </div>
-</main>
+</div>

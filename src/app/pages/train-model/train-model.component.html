@@ -1,0 +1,18 @@
+<div class="main">
+  <h1>Train a model</h1>
+  <form [formGroup]="form" (ngSubmit)="train()" method="post">
+    <div class="field">
+      <label for="model">Choose a model</label>
+      <select id="model" formControlName="model">
+        <option *ngFor="let model of getModels()" [value]="model">{{ model }}</option>
+      </select>
+      <label for="appliance">Choose an appliance</label>
+      <select id="appliance" formControlName="appliance">
+        <option *ngFor="let appliance of getAppliances()" [value]="appliance.getId()">{{ appliance.getName() }}</option>
+      </select>
+      <label for="epochs">Choose the amount of epochs</label>
+      <input type="number" id="epochs" formControlName="epochs">
+    </div>
+    <input type="submit" class="button" value="Train">
+  </form>
+</div>
