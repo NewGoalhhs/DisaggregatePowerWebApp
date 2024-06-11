@@ -170,6 +170,10 @@ main div.div-75 {
 }
 
 @media screen and (orientation: portrait) {
+  main {
+    height: 94%;
+  }
+
   main div.div-25 {
     width: 0;
     height: 100%;

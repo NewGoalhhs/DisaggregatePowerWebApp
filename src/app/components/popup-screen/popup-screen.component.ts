@@ -37,6 +37,8 @@ export class PopupScreenComponent implements OnInit {
   ngOnInit() {
     if (window.location.href.includes("popup")) {
       this.setHide(false);
+    } else {
+      this.setHide(true);
     }
     this.loadComponent();
   }

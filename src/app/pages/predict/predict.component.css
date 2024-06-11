@@ -1,0 +1,20 @@
+div.prediction {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin: 4px 0;
+  padding: 5px;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+div.is-on {
+  background-color: var(--green);
+}
+
+div.is-off {
+  background-color: var(--red);
+}

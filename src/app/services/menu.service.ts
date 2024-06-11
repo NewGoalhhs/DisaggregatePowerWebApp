@@ -20,4 +20,13 @@ export class MenuService {
   closeMenu() {
     this.open = false;
   }
+
+  getMenuItems(): object {
+    return {
+      '/': 'Appliance in use',
+      '/train': 'Train model',
+      '/predict': 'Predict with model',
+      '/advanced': 'Advanced training and predicting',
+    }
+  }
 }

@@ -6,10 +6,14 @@
       <select id="model" formControlName="model">
         <option *ngFor="let model of getModels()" [value]="model">{{ model }}</option>
       </select>
+    </div>
+    <div class="field">
       <label for="appliance">Choose an appliance</label>
       <select id="appliance" formControlName="appliance">
         <option *ngFor="let appliance of getAppliances()" [value]="appliance.getId()">{{ appliance.getName() }}</option>
       </select>
+    </div>
+    <div class="field">
       <label for="epochs">Choose the amount of epochs</label>
       <input type="number" id="epochs" formControlName="epochs">
     </div>

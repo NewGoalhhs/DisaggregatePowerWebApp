@@ -1,4 +1,4 @@
-<div class="main {{ shouldView() ? '' : 'hidden' }} {{ getType() }}" (click)="closeNotifier()">
+<div class="notifier {{ shouldView() ? '' : 'hidden' }} {{ getType() }}" (click)="closeNotifier()">
   <h2>{{ getTitle() }}</h2>
   <p>{{ getMessage() }}</p>
 </div>

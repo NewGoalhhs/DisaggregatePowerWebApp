@@ -25,7 +25,11 @@ export class ApiService {
   }
 
   getTrainDataOptions() {
-    return this.basicApiCall('/train_options', Method.GET);
+    return this.basicApiCall('/train/options', Method.GET);
+  }
+
+  getPredictDataOptions() {
+    return this.basicApiCall('/predict/options', Method.GET);
   }
 
   trainModel(applianceId: any, model: string, epochs: any) {
@@ -33,6 +37,13 @@ export class ApiService {
       appliance_id: applianceId,
       model: model,
       epochs: epochs
+    });
+  }
+
+  predictModel(datetime: string[], mainPower: string[]) {
+    return this.basicApiCall('/predict/start', Method.POST, {
+      datetime: datetime,
+      main_power: mainPower
     });
   }
 }

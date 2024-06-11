@@ -1,9 +1,10 @@
-div.main {
+div.notifier {
     position: fixed;
     top: 1%;
     z-index: 1000;
     padding: 20px;
-    width: 300px;
+    width: 80%;
+    left: 5%;
     color: white;
     font-size: 20px;
     text-align: center;
@@ -13,22 +14,35 @@ div.main {
     background-color: #007bff;
 }
 
-div.main.success {
+
+
+div h2, div p {
+  margin: 0;
+}
+
+div.notifier.success {
     background-color: #28a745;
 }
 
-div.main.error {
+div.notifier.error {
     background-color: #dc3545;
 }
 
-div.main.warning {
+div.notifier.warning {
     background-color: #ffc107;
 }
 
-div.main.info {
+div.notifier.info {
     background-color: #17a2b8;
 }
 
-div.main.hidden {
+div.notifier.hidden {
     top: -100%;
+}
+
+@media screen and (orientation: landscape) {
+    div.notifier {
+        width: 50%;
+        left: 25%;
+    }
 }

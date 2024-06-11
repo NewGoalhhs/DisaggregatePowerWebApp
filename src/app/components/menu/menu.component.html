@@ -4,8 +4,6 @@
       <i class="fa fa-close"></i>
     </button>
     <h1>Navigations</h1>
-    <button class="navigation" (click)="navigate('/')">Get appliance use</button>
-    <button class="navigation" (click)="navigate('/train')">Train model</button>
-    <button class="navigation" (click)="navigate('/advanced')">Advanced</button>
+    <button *ngFor="let nav of getNavs()" class="navigation" (click)="navigate(nav[0])">{{nav[1]}}</button>
   </div>
 </div>

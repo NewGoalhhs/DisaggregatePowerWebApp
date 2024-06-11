@@ -19,6 +19,19 @@ body, html, app-root {
   height: 100%;
 }
 
+div.main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  padding-top: 11%;
+  height: 89%;
+  width: 80%;
+  padding-left: 10%;
+  background-color: white;
+}
+
+
 button.top-nav {
   position: absolute;
   top: 1rem;
