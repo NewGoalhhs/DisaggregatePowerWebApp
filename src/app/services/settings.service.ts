@@ -8,7 +8,7 @@ export class SettingsService {
 
   constructor(private localstorageService: LocalstorageService) { }
 
-  private apiURL: string = "http://192.168.178.69:5000/api";
+  private apiURL: string = "http://localhost:4201/api";
 
   setApiURL(url: string) {
     this.apiURL = url;
