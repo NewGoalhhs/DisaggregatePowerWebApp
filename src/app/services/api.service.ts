@@ -28,6 +28,10 @@ export class ApiService {
     return this.basicApiCall('/train/options', Method.GET);
   }
 
+  getAdvancedTrainDataOptions() {
+    return this.basicApiCall('/train/advanced/options', Method.GET);
+  }
+
   getPredictDataOptions() {
     return this.basicApiCall('/predict/options', Method.GET);
   }
@@ -37,6 +41,13 @@ export class ApiService {
       appliance_id: applianceId,
       model: model,
       epochs: epochs
+    });
+  }
+
+  advancedTrainModel(applianceIds: any, epochs: any) {
+    return this.basicApiCall('/train/advanced/start', Method.POST, {
+      appliance_ids: applianceIds,
+      epochs: epochs,
     });
   }
 

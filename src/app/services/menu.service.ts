@@ -26,7 +26,8 @@ export class MenuService {
       '/': 'Appliance in use',
       '/train': 'Train model',
       '/predict': 'Predict with model',
-      '/advanced': 'Advanced training and predicting',
+      '/advanced/training': 'Advanced training',
+      '/advanced/predicting': 'Advanced predicting',
     }
   }
 }

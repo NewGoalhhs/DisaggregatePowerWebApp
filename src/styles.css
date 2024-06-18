@@ -31,6 +31,12 @@ div.main {
   background-color: white;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
 
 button.top-nav {
   position: absolute;
@@ -78,6 +84,11 @@ button, input[type="submit"].button {
   color: white;
   border-radius: 3px;
   border: none;
+  max-width: 150px;
+}
+
+button.navigation {
+  max-width: 100%;
 }
 
 button:hover, input[type="submit"].button:hover {
@@ -89,8 +100,16 @@ button:hover, input[type="submit"].button:hover {
   display: none;
 }
 
+app-popup-screen div.field {
+  width: 90%;
+}
+
 @media screen and (orientation: portrait) {
   .hide-on-pc {
     display: unset;
+  }
+
+  form {
+    width: 100%;
   }
 }

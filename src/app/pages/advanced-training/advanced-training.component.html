@@ -1,0 +1,28 @@
+<div class="main">
+  <h1>Advanced training</h1>
+
+  <form [formGroup]="form">
+    <p>
+      Select the appliances you want to train
+    </p>
+    <div class="select-appliances">
+      <div class="appliance" *ngFor="let appliance of getSelectedAppliances()">
+        <h2>{{appliance.getName()}}</h2>
+        <button class="remove-appliance" (click)="removeAppliance(appliance.getId())">
+          <i class="fa fa-close"></i>
+        </button>
+      </div>
+      <div class="field">
+        <select id="appliance" formControlName="appliance">
+          <option value="" disabled selected>Select an appliance</option>
+          <option *ngFor="let appliance of getAvailableAppliances()" [value]="appliance.getId()">{{appliance.getName()}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label for="epochs"></label>
+      <input type="number" id="epochs" formControlName="epochs" placeholder="Number of epochs">
+    </div>
+    <input type="submit" value="Start training" class="button" [disabled]="!form.valid" (click)="startTraining()">
+  </form>
+</div>

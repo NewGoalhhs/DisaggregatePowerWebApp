@@ -1,0 +1,27 @@
+div.select-appliances {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+div.appliance {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 90%;
+    background-color: #f9f9f9;
+}
+
+button.remove-appliance {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
