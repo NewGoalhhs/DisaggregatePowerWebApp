@@ -6,11 +6,12 @@ import {PopupService} from "./services/popup.service";
 import {MenuService} from "./services/menu.service";
 import {NotifierComponent} from "./components/notifier/notifier.component";
 import {NotifierService} from "./services/notifier.service";
+import {BottomNotifierComponent} from "./components/bottom-notifier/bottom-notifier.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PopupScreenComponent, MenuComponent, NotifierComponent],
+  imports: [RouterOutlet, PopupScreenComponent, MenuComponent, NotifierComponent, BottomNotifierComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -36,5 +37,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.popupService.setHide(true);
     this.notifierService.loadListener();
+    this.notifierService.loadListenerBottom();
   }
 }

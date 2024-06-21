@@ -71,9 +71,9 @@ export class AdvancedTrainingComponent implements OnInit {
       } else {
         this.notifierService.openNotification('Training failed', 'The training has failed', NotificationType.ERROR);
       }
-      this.notifierService.resetListener();
+      this.notifierService.resetListenerBottom();
     });
     this.notifierService.openNotification('Training started', 'The training has been started', NotificationType.INFO);
-    this.notifierService.setListener('advanced_training_notification');
+    this.notifierService.setListenerBottom('advanced_training_notification');
   }
 }

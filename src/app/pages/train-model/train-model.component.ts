@@ -64,7 +64,9 @@ export class TrainModelComponent implements OnInit {
       } else {
         this.notifierService.openNotification('Training Failed', 'The model failed to train. Please try again.', NotificationType.ERROR, 10000)
       }
+      this.notifierService.resetListenerBottom();
     });
     this.notifierService.openNotification('Training Started', 'The model has started training. This may take a few minutes.', NotificationType.INFO, 5000)
+    this.notifierService.setListenerBottom('training_notification')
   }
 }

@@ -1,0 +1,40 @@
+div.notifier {
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  padding: 20px;
+  width: 100%;
+  left: 0;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: top 0.5s;
+  background-color: #007bff;
+}
+
+
+
+div h2, div p {
+  margin: 0;
+}
+
+div.notifier.success {
+  background-color: #28a745;
+}
+
+div.notifier.error {
+  background-color: #dc3545;
+}
+
+div.notifier.warning {
+  background-color: #ffc107;
+}
+
+div.notifier.info {
+  background-color: #17a2b8;
+}
+
+div.notifier.hidden {
+  bottom: -100%;
+}
