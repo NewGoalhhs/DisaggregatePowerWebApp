@@ -1,1 +1,30 @@
-<p>advanced-predicting works!</p>
+<div class="main">
+  <h1>Advanced Predicting</h1>
+  <form [formGroup]="form" (ngSubmit)="predict()" method="post">
+    <div class="field">
+      <select id="model" formControlName="model">
+        <option value="" disabled selected>Select a model</option>
+        <option *ngFor="let model of getModels()" [value]="model">{{ model }}</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="datetime">Choose a datetime</label>
+      <input type="datetime-local" id="datetime" formControlName="datetime" [value]="currentDatetime" >
+    </div>
+    <div class="field">
+      <label for="mainPower">Set an amount of power: {{ getMainPower() }}</label>
+      <input type="range" id="mainPower" formControlName="mainPower" min="0" max="10000" value="0">
+    </div>
+    <input type="submit" class="button" value="Predict">
+  </form>
+  <div>
+    <h2>Prediction</h2>
+    <div
+      *ngFor="let advancedModelPredictionProbabilities of getAdvancedModelPredictionProbabilities()"
+      class="prediction {{ advancedModelPredictionProbabilities[1]['predictions'][0] === 1 ? 'is-on' : 'is-off' }}"
+    >
+      <p>{{ advancedModelPredictionProbabilities[0] }}: </p>
+      <p>{{ round(advancedModelPredictionProbabilities[1]['probabilities'] * 100) }}%</p>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
 import {PopupScreenComponent} from "./components/popup-screen/popup-screen.component";
 import {MenuComponent} from "./components/menu/menu.component";
 import {PopupService} from "./services/popup.service";
 import {MenuService} from "./services/menu.service";
 import {NotifierComponent} from "./components/notifier/notifier.component";
+import {NotifierService} from "./services/notifier.service";
 
 @Component({
   selector: 'app-root',
@@ -13,10 +14,10 @@ import {NotifierComponent} from "./components/notifier/notifier.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'DisaggregatePowerWebApp';
 
-  constructor(private router: Router, private popupService: PopupService, private menuService: MenuService) {
+  constructor(private router: Router, private popupService: PopupService, private menuService: MenuService, private notifierService: NotifierService) {
   }
 
   goToSettings() {
@@ -30,5 +31,10 @@ export class AppComponent {
 
   isOpen() {
     return this.menuService.isOpen();
+  }
+
+  ngOnInit() {
+    this.popupService.setHide(true);
+    this.notifierService.loadListener();
   }
 }

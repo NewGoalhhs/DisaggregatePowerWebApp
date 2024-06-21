@@ -21,23 +21,27 @@ export class ApiService {
   }
 
   getAppliances(): Promise<any> {
-    return this.basicApiCall('/appliance', Method.GET);
+    return this.basicApiCall('api/appliance', Method.GET);
   }
 
   getTrainDataOptions() {
-    return this.basicApiCall('/train/options', Method.GET);
+    return this.basicApiCall('api/train/options', Method.GET);
   }
 
   getAdvancedTrainDataOptions() {
-    return this.basicApiCall('/train/advanced/options', Method.GET);
+    return this.basicApiCall('api/train/advanced/options', Method.GET);
+  }
+
+  getAdvancedPredictDataOptions() {
+    return this.basicApiCall('api/predict/advanced/options', Method.GET);
   }
 
   getPredictDataOptions() {
-    return this.basicApiCall('/predict/options', Method.GET);
+    return this.basicApiCall('api/predict/options', Method.GET);
   }
 
   trainModel(applianceId: any, model: string, epochs: any) {
-    return this.basicApiCall('/train/start', Method.POST, {
+    return this.basicApiCall('api/train/start', Method.POST, {
       appliance_id: applianceId,
       model: model,
       epochs: epochs
@@ -45,16 +49,28 @@ export class ApiService {
   }
 
   advancedTrainModel(applianceIds: any, epochs: any) {
-    return this.basicApiCall('/train/advanced/start', Method.POST, {
+    return this.basicApiCall('api/train/advanced/start', Method.POST, {
       appliance_ids: applianceIds,
       epochs: epochs,
     });
   }
 
   predictModel(datetime: string[], mainPower: string[]) {
-    return this.basicApiCall('/predict/start', Method.POST, {
+    return this.basicApiCall('api/predict/start', Method.POST, {
       datetime: datetime,
       main_power: mainPower
     });
+  }
+
+  advancedPredictModel(model: string[], datetime: string[], mainPower: string[]) {
+    return this.basicApiCall('api/predict/advanced/start', Method.POST, {
+      model: model,
+      datetime: datetime,
+      main_power: mainPower
+    });
+  }
+
+  getHomeListener() {
+    return this.basicApiCall('webhook', Method.GET);
   }
 }

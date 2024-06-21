@@ -8,7 +8,8 @@ export class SettingsService {
 
   constructor(private localstorageService: LocalstorageService) { }
 
-  private apiURL: string = "http://192.168.178.69:5000/api";
+  private apiURL: string = "http://localhost:4201/";
+  private socketURL: string = "http://localhost:4201/";
 
   setApiURL(url: string) {
     this.apiURL = url;
@@ -17,5 +18,9 @@ export class SettingsService {
 
   getApiURL() {
     return this.apiURL;
+  }
+
+  getSocketURL() {
+    return this.socketURL;
   }
 }

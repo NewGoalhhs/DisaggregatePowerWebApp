@@ -1,17 +1,21 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {NotificationType} from "../enums/notification-type";
+import {LocalstorageService} from "./localstorage.service";
+import {SocketService} from "./socket.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotifierService {
 
+  private notifierListener: string = '';
+
   private viewing: boolean = false;
   private title: string = '';
   private message: string = '';
   private type: string = '';
 
-  constructor() { }
+  constructor(private localStorageService: LocalstorageService, private socketService: SocketService) { }
 
   shouldView() {
     return this.viewing;
@@ -39,5 +43,27 @@ export class NotifierService {
 
   getType() {
     return this.type;
+  }
+
+  setListener(listener: string) {
+    this.notifierListener = listener;
+    this.localStorageService.set(this, 'notifierListener', listener);
+    console.log(this.getListener())
+    this.socketService.getSocket().on(this.getListener(), (data: any) => {
+      this.openNotification(data['title'], data['message'], data['type'], data['duration']);
+    })
+  }
+
+  getListener() {
+    return this.notifierListener;
+  }
+
+  resetListener() {
+    this.notifierListener = '';
+    this.localStorageService.set(this, 'notifierListener', '');
+  }
+
+  loadListener() {
+    this.setListener(this.localStorageService.get(this, 'notifierListener'));
   }
 }

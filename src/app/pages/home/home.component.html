@@ -3,9 +3,14 @@
     <h1>Disaggregate Power Web App</h1>
     <div class=""></div>
     <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="home-information">
+      <h2>Home Information</h2>
+      <p>Current date and time:<strong> {{ getCurrentDatetime() }}</strong></p>
+      <p>Current power usage:<strong> {{ getCurrentPowerUsage() }} W</strong></p>
+    </div>
     <div class="right-side">
       <h2>Appliances</h2>
-      <app-appliance-information *ngFor="let appliance of getAppliances()" [appliance]="appliance"></app-appliance-information>
+      <app-appliance-information *ngFor="let prediction of getHomeData()" [appliance]="prediction"></app-appliance-information>
     </div>
   </div>
 </div>
